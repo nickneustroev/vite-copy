@@ -1671,6 +1671,7 @@ export interface ViteBuilder {
   build(
     environment: BuildEnvironment,
   ): Promise<RolldownOutput | RolldownOutput[] | RolldownWatcher>
+  runDevTools(): Promise<void>
 }
 
 export interface BuilderOptions {
@@ -1781,6 +1782,20 @@ export async function createBuilder(
       const output = await buildEnvironment(environment)
       environment.isBuilt = true
       return output
+    },
+    async runDevTools() {
+      const devtoolsConfig = config.devtools
+      if (devtoolsConfig.enabled) {
+        try {
+          const { start } = await import(`@vitejs/devtools/cli-commands`)
+          await start(devtoolsConfig.config)
+        } catch (e) {
+          config.logger.error(
+            colors.red(`Failed to run Vite DevTools: ${e.message || e.stack}`),
+            { error: e },
+          )
+        }
+      }
     },
   }
 
