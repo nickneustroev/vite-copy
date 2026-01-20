@@ -54,7 +54,7 @@ export class MyElement extends LitElement {
       padding: 2rem;
       text-align: center;
     }
-
+    
     .logo {
       height: 6em;
       padding: 1.5em;
@@ -67,20 +67,20 @@ export class MyElement extends LitElement {
     .logo.lit:hover {
       filter: drop-shadow(0 0 2em #325cffaa);
     }
-
+    
     .card {
       padding: 2em;
     }
-
+    
     .read-the-docs {
       color: #888;
     }
-
+    
     ::slotted(h1) {
       font-size: 3.2em;
       line-height: 1.1;
     }
-
+    
     a {
       font-weight: 500;
       color: #646cff;
@@ -89,7 +89,7 @@ export class MyElement extends LitElement {
     a:hover {
       color: #535bf2;
     }
-
+    
     button {
       border-radius: 8px;
       border: 1px solid transparent;
@@ -108,7 +108,7 @@ export class MyElement extends LitElement {
     button:focus-visible {
       outline: 4px auto -webkit-focus-ring-color;
     }
-
+    
     @media (prefers-color-scheme: light) {
       a:hover {
         color: #747bff;
